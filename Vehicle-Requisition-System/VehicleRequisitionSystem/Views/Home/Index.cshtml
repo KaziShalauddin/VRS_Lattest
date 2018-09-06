@@ -1,0 +1,141 @@
+﻿@using VehicleRequisitionSystem.App_Start
+@{
+    ViewBag.Title = "Home Page";
+    
+}
+
+
+@*<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>*@
+
+<div class="row">
+    <div>
+        @*<div class="col-md-4">
+                <h2>Getting started</h2>
+                <p>
+                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                    enables a clean separation of concerns and gives you full control over markup
+                    for enjoyable, agile development.
+                </p>
+                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Get more libraries</h2>
+                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Web Hosting</h2>
+                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            </div>*@
+        <!-- Portfolio Grid Section -->
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <img class="img-responsive" src="~/Website_Design/img/profile.png" alt="">
+                        <div class="intro-text">
+                            <span class="name">BCC Vehicle Requisition System</span>
+                            <hr class="star-light">
+                            <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+            <section id="portfolio">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2>Portfolio</h2>
+                            <hr class="star-primary">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        @*<div class="col-sm-4 portfolio-item">
+                            <a href="@Url.Action("EmployeeRequisitionsList", "Requisitions")" class="portfolio-link" data-toggle="modal">
+                                <div class="caption">
+                                    <div class="caption-content">
+                                        <i class="fa fa-search-plus fa-2x">Submit Requisition Requests </i>
+                                    </div>
+                                </div>
+                                <img src="~/Scripts/Website_Design/img/portfolio/game.png" class="img-responsive" alt="">
+                            </a>
+                        </div>*@
+                        @*@if (User.IsInRole(AppEnum.RoleEnum.Administrator.ToString()))
+                        {*@
+                            <div class="col-sm-4 portfolio-item">
+                                <a href="@Url.Action("Index", "Employees")" class="portfolio-link" data-toggle="modal">
+                                    <div class="caption">
+                                        <div class="caption-content">
+                                            <i class="fa fa-search-plus fa-3x"> All Employees</i>
+                                        </div>
+                                    </div>
+                                    <img src="~/Scripts/Website_Design/img/portfolio/cabin.png" class="img-responsive" alt="">
+                                </a>
+                            </div>
+
+                            @*<div class="col-sm-4 portfolio-item">
+                                <a href="@Url.Action("Index", "Drivers")" class="portfolio-link" data-toggle="modal">
+                                    <div class="caption">
+                                        <div class="caption-content">
+                                            <i class="fa fa-search-plus fa-3x">Drivers</i>
+                                        </div>
+                                    </div>
+                                    <img src="~/Scripts/Website_Design/img/portfolio/cake.png" class="img-responsive" alt="">
+                                </a>
+                            </div>*@
+                            <div class="col-sm-4 portfolio-item">
+                                <a href="@Url.Action("Index", "Vehicles")" class="portfolio-link" data-toggle="modal">
+                                    <div class="caption">
+                                        <div class="caption-content">
+                                            <i class="fa fa-search-plus fa-3x">Vehicles</i>
+                                        </div>
+                                    </div>
+                                    <img src="~/Scripts/Website_Design/img/portfolio/circus.png" class="img-responsive" alt="">
+                                </a>
+                            </div>
+
+                            <div class="col-sm-4 portfolio-item">
+                                <a href="@Url.Action("Index", "AssignedRequests")" class="portfolio-link" data-toggle="modal">
+                                    <div class="caption">
+                                        <div class="caption-content">
+                                            <i class="fa fa-search-plus fa-2x">Assign Requisition</i>
+                                        </div>
+                                    </div>
+                                    <img src="~/Scripts/Website_Design/img/portfolio/safe.png" class="img-responsive" alt="">
+                                </a>
+                            </div>
+                        @*}*@
+                        <div class="col-sm-4 portfolio-item">
+                            <a href="@Url.Action("DriverList", "Employees")" class="portfolio-link" data-toggle="modal">
+                                <div class="caption">
+                                    <div class="caption-content">
+                                        <i class="fa fa-search-plus fa-3x">Drivers</i>
+                                    </div>
+                                </div>
+                                <img src="~/Scripts/Website_Design/img/portfolio/submarine.png" class="img-responsive" alt="">
+                            </a>
+                        </div>
+                        @*<div class="col-sm-4 portfolio-item">
+                            <a href="@Url.Action("Index", "Employees")" class="portfolio-link" data-toggle="modal">
+                                <div class="caption">
+                                    <div class="caption-content">
+                                        <i class="fa fa-search-plus fa-3x">Employees</i>
+                                    </div>
+                                </div>
+                                <img src="~/Scripts/Website_Design/img/portfolio/submarine.png" class="img-responsive" alt="">
+                            </a>
+                        </div>*@
+                    </div>
+                </div>
+            </section>
+        </div>
+    
+
+</div>

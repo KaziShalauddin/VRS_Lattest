@@ -1,0 +1,67 @@
+﻿@model VehicleRequisitionSystem.Models.EntityModels.AssignedRequest
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AssignedRequest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Request.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Request.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.BrandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.BrandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpIdNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpIdNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

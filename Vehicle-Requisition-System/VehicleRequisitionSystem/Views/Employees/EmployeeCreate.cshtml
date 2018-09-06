@@ -1,0 +1,281 @@
+﻿@using System.Activities.Statements
+@using Newtonsoft.Json
+@model VehicleRequisitionSystem.Models.ViewModels.EmployeeEntryVM
+
+@{
+    ViewBag.Title = "EmployeeCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Employee</h2>
+
+
+@using (Html.BeginForm())
+{
+    @*@Html.AntiForgeryToken()*@
+
+    <div class="form-horizontal">
+        <div id="tabs" class="col-md-12">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tabs-1">Personal Information</a></li>
+                <li><a href="#tabs-2">Official Information</a></li>
+
+            </ul>
+            <br />
+            <br />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div id="tabs-1">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.Label("Photo", htmlAttributes: new {@class = "control-label col-md-2"})
+                        <div class="btn btn-primary ">
+                            <div class="col-md-10">
+                                <input type="file" id="imageBrowes"/>
+                            </div>
+                        </div>
+
+
+                        <div id="imgPreview" class="thumbnail" style="display: none">
+                            <img class="img-responsive" id="targetImg" style="height: 300px; width: 300px"/>
+                            <div class="caption">
+                                <a href="#" onclick="ClearPreview()"><i class="glyphicon glyphicon-trash"></i></a>
+                                <span id="description"></span>
+                            </div>
+                            @*<a href="#" class="btn btn-default" onclick="Uploadimage()">Upload</a>*@
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+            <div id="tabs-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DepartmentId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.DepartmentId, ViewBag.Departments as SelectList, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DesignationId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.DesignationId, ViewBag.Designations as SelectList, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DesignationId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsDriver, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.IsDriver)
+                            @* @Html.HiddenFor(m => m.IsDriver)*@
+                            @Html.ValidationMessageFor(model => model.IsDriver, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DrivingLicenseNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+                        @if ("IsDriver".IsBool() == false)
+                        {
+                            @Html.EditorFor(model => model.DrivingLicenseNo, new { htmlAttributes = new { @class = "form-control", required = true } })
+
+                        }
+                        else
+                        {
+                            @Html.EditorFor(model => model.DrivingLicenseNo, new { htmlAttributes = new { @class = "form-control" } })
+                        }
+
+                        @Html.ValidationMessageFor(model => model.DrivingLicenseNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @*<div class="form-group">
+                        <p id="messsage" class="col-md-10">
+                        </p>
+                    </div>*@
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-success" onclick="Uploadimage()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<div class="col-md-12">
+    <hr />
+    
+    <button style="float: right">
+        @Html.ActionLink("Back to List", "Index")
+    </button>
+</div>
+
+@section Scripts {
+   
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#tabs").tabs({
+                //collapsible: true
+            });
+
+        });
+        $(".nav li").on("click", function () {
+            $(".nav li").removeClass("active");
+            $(this).addClass("active");
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#IsDriver").change(function () {
+
+                //else {
+                //    return true;
+                //    }
+            });
+            $("#imageBrowes").change(function () {
+
+                var file = this.files;
+
+                if (file && file[0]) {
+                    ReadImage(file[0]);
+                }
+
+            });
+        });
+
+
+
+
+        var ReadImage = function (file) {
+
+            var reader = new FileReader;
+            var image = new Image;
+
+            reader.readAsDataURL(file);
+            reader.onload = function (_file) {
+
+                image.src = _file.target.result;
+                image.onload = function () {
+
+                    var height = this.height;
+                    var width = this.width;
+                    var type = file.type;
+                    var size = ~~(file.size / 1024) + "KB";
+
+                    $("#targetImg").attr('src', _file.target.result);
+                    $("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                    $("#imgPreview").show();
+
+                };
+            };
+        };
+        var ClearPreview = function () {
+            $("#imageBrowes").val('');
+            $("#description").text('');
+            $("#imgPreview").hide();
+
+        };
+
+        var Uploadimage = function () {
+            debugger;
+            // var checked = $("#IsDriver").is(":checked");
+            //if (checked === true) {
+            //    return false;
+            //}
+            var checked = $("#IsDriver").is(":checked");
+            if (checked === true) {
+                if ($("#DrivingLicenseNo").val().length === 0) {
+                    return false;
+                }
+                //else {
+                //    return true;
+                //}
+
+            }
+            var file = $("#imageBrowes").get(0).files;
+
+            var data = new FormData();
+            data.append("ImageFile", file[0]);
+            //data.append("ProductName", "SamsungA8");
+            data.append("Name", $("#Name").val());
+            data.append("DepartmentId", $("#DepartmentId").val());
+            data.append("DesignationId", $("#DesignationId").val());
+            data.append("Phone", $("#Phone").val());
+            data.append("Email", $("#Email").val());
+            data.append("Address", $("#Address").val());
+            data.append("IsDriver", checked);
+            data.append("DrivingLicenseNo", $("#DrivingLicenseNo").val());
+            data.append("UserId", $("#UserId").val());
+
+
+            $.ajax({
+
+                type: "Post",
+                url: "/Employees/EmployeeJsonCreate",
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function () {
+                    ClearPreview();
+                    window.location.href = '@Url.Action("Index", "Employees")';
+
+                }
+
+            });
+            return false;
+        };
+    </script>
+}
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+
+

@@ -1,0 +1,222 @@
+﻿@model VehicleRequisitionSystem.Models.ViewModel.EmployeeEntryVm
+
+@{
+    ViewBag.Title = "EmployeeCreate_V2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employee Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+      
+       
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartmentId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.DepartmentId, ViewBag.Departments as SelectList, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DesignationId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.DesignationId, ViewBag.Designations as SelectList, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DesignationId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Photo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="btn btn-primary ">
+                <div class="col-md-10">
+                    <input type="file" id="imageBrowes" />
+                </div>
+            </div>
+            <hr />
+
+            <div id="imgPreview" class="thumbnail" style="display: none">
+                <img class="img-responsive" id="targetImg" />
+                <div class="caption">
+                    <a href="#" onclick="ClearPreview()"><i class="glyphicon glyphicon-trash"></i></a>
+                    <span id="description"></span>
+                </div>
+                @*<a href="#" class="btn btn-default" onclick="Uploadimage()">Upload</a>*@
+            </div>
+        </div>
+
+       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsDriver, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsDriver)
+                    @Html.ValidationMessageFor(model => model.IsDriver, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DrivingLicenseNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DrivingLicenseNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DrivingLicenseNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" onclick="Uploadimage()" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+@*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")*@
+<script>
+
+    $(document).ready(function () {
+
+
+        $("#imageBrowes").change(function () {
+
+            var file = this.files;
+
+            if (file && file[0]) {
+                ReadImage(file[0]);
+            }
+
+        });
+    });
+
+    var ReadImage = function (file) {
+
+        var reader = new FileReader;
+        var image = new Image;
+
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                var height = this.height;
+                var width = this.width;
+                var type = file.type;
+                var size = ~~(file.size / 1024) + "KB";
+
+                $("#targetImg").attr('src', _file.target.result);
+                $("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                $("#imgPreview").show();
+
+            };
+        };
+    };
+    var ClearPreview = function () {
+        $("#imageBrowes").val('');
+        $("#description").text('');
+        $("#imgPreview").hide();
+
+    };
+
+    var Uploadimage = function () {
+        debugger;
+        var checked = $("#IsDriver").is(":checked");
+        //if (checked === true) {
+        //    return false;
+        //}
+        //var checked = $("#IsDriver").is(":checked");
+        //if (checked === true) {
+        //    if ($("#DrivingLicenseNo").val().length === 0) {
+        //        return false;
+        //    }
+        //else {
+        //    return true;
+        //}
+
+
+        var file = $("#imageBrowes").get(0).files;
+
+        var data = new FormData();
+        data.append("ImageFile", file[0]);
+        //data.append("ProductName", "SamsungA8");
+        data.append("Name", $("#Name").val());
+        data.append("DepartmentId", $("#DepartmentId").val());
+        data.append("DesignationId", $("#DesignationId").val());
+        data.append("Phone", $("#Phone").val());
+        data.append("Email", $("#Email").val());
+        data.append("Address", $("#Address").val());
+        data.append("IsDriver", checked);
+        data.append("DrivingLicenseNo", $("#DrivingLicenseNo").val());
+
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Employees/EmployeeJsonCreate_V2",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function () {
+                ClearPreview();
+                window.location.href = '@Url.Action("Index", "Employees")';
+
+            },
+            error: function (response) {
+                response.show("Name", $("#Name").val());
+            }
+
+
+        });
+    }
+
+</script>
+}
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+

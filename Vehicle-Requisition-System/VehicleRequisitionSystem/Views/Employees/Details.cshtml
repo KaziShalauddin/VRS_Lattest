@@ -1,0 +1,100 @@
+﻿@model VehicleRequisitionSystem.Models.EntityModels.Employee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <div class="col-md-12">
+        <div class="col-md-7">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.EmpIdNo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EmpIdNo)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Department.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Department.Name)
+                </dd>
+
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Designation.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Designation.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Phone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+
+                @*<dt>
+                        @Html.DisplayNameFor(model => model.UserId)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.UserId)
+                    </dd>*@
+
+                @*<dt>
+                        @Html.DisplayNameFor(model => model.IsDeleted)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IsDeleted)
+                    </dd>*@
+
+            </dl>
+        </div>
+        <div class="col-4">
+            
+            <img src="@Url.Content(Model.ImagePath)" style="height: 200px; width: 300px;" class="img-thumbnail" />
+
+        </div>
+    </div>
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{40B19536-55AB-437E-A3A5-13D15D6C9140}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VehicleRequisitionSystem.Models</RootNamespace>
+    <AssemblyName>VehicleRequisitionSystem.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBContext\VehicleRequisitionDBContext.cs" />
+    <Compile Include="EntityModels\AssignedRequest.cs" />
+    <Compile Include="EntityModels\AssignedRequisition.cs" />
+    <Compile Include="EntityModels\Configuration.cs" />
+    <Compile Include="EntityModels\ConfigurationType.cs" />
+    <Compile Include="EntityModels\Department.cs" />
+    <Compile Include="EntityModels\Designation.cs" />
+    <Compile Include="EntityModels\Driver.cs" />
+    <Compile Include="EntityModels\Employee.cs" />
+    <Compile Include="EntityModels\Organization.cs" />
+    <Compile Include="EntityModels\Request.cs" />
+    <Compile Include="EntityModels\RequisitionRequest.cs" />
+    <Compile Include="EntityModels\Status.cs" />
+    <Compile Include="EntityModels\Vehicle.cs" />
+    <Compile Include="Migrations\201808231631192_InitialMigration.cs" />
+    <Compile Include="Migrations\201808231631192_InitialMigration.Designer.cs">
+      <DependentUpon>201808231631192_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808241712484_Image_PropertyAdded_to_tblEmployee.cs" />
+    <Compile Include="Migrations\201808241712484_Image_PropertyAdded_to_tblEmployee.Designer.cs">
+      <DependentUpon>201808241712484_Image_PropertyAdded_to_tblEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808271741506_tblEmployee_Modified.cs" />
+    <Compile Include="Migrations\201808271741506_tblEmployee_Modified.Designer.cs">
+      <DependentUpon>201808271741506_tblEmployee_Modified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809021805196_RequestTable_Added.cs" />
+    <Compile Include="Migrations\201809021805196_RequestTable_Added.Designer.cs">
+      <DependentUpon>201809021805196_RequestTable_Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809030316050_EmpId_Added_to_tblEmployee.cs" />
+    <Compile Include="Migrations\201809030316050_EmpId_Added_to_tblEmployee.Designer.cs">
+      <DependentUpon>201809030316050_EmpId_Added_to_tblEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809030349541_tblEmployee_EmployeeId_Modified_to_string.cs" />
+    <Compile Include="Migrations\201809030349541_tblEmployee_EmployeeId_Modified_to_string.Designer.cs">
+      <DependentUpon>201809030349541_tblEmployee_EmployeeId_Modified_to_string.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809030421201_tblRequest_AssignedRequisitionId_Removed.cs" />
+    <Compile Include="Migrations\201809030421201_tblRequest_AssignedRequisitionId_Removed.Designer.cs">
+      <DependentUpon>201809030421201_tblRequest_AssignedRequisitionId_Removed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809030847065_tblRequest_stringEmployeeId_Modified_to_EmpIdNo_And_tblEmployee_Association_Added.cs" />
+    <Compile Include="Migrations\201809030847065_tblRequest_stringEmployeeId_Modified_to_EmpIdNo_And_tblEmployee_Association_Added.Designer.cs">
+      <DependentUpon>201809030847065_tblRequest_stringEmployeeId_Modified_to_EmpIdNo_And_tblEmployee_Association_Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809050109369_tblRequest_EmployeeId_Association_Removed.cs" />
+    <Compile Include="Migrations\201809050109369_tblRequest_EmployeeId_Association_Removed.Designer.cs">
+      <DependentUpon>201809050109369_tblRequest_EmployeeId_Association_Removed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809050328010_tblAssignedRequest_Added.cs" />
+    <Compile Include="Migrations\201809050328010_tblAssignedRequest_Added.Designer.cs">
+      <DependentUpon>201809050328010_tblAssignedRequest_Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809050337012_tblAssignedRequest_DriverIdRemoved_EmployeeIdAdded.cs" />
+    <Compile Include="Migrations\201809050337012_tblAssignedRequest_DriverIdRemoved_EmployeeIdAdded.Designer.cs">
+      <DependentUpon>201809050337012_tblAssignedRequest_DriverIdRemoved_EmployeeIdAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ViewModels\AdminRequestAssignVM.cs" />
+    <Compile Include="ViewModels\EmployeeEntryVM.cs" />
+    <Compile Include="ViewModels\EmployeeRegisterVM.cs" />
+    <Compile Include="ViewModels\EmployeeRequestVM.cs" />
+    <Compile Include="ViewModels\EmployeeRequisitionRequestVM.cs" />
+    <Compile Include="ViewModels\RequestAssignVM.cs" />
+    <Compile Include="ViewModels\RequestEntryVM.cs" />
+    <Compile Include="ViewModels\RequestListVM.cs" />
+    <Compile Include="ViewModels\RequisitionEntryVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808231631192_InitialMigration.resx">
+      <DependentUpon>201808231631192_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808241712484_Image_PropertyAdded_to_tblEmployee.resx">
+      <DependentUpon>201808241712484_Image_PropertyAdded_to_tblEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808271741506_tblEmployee_Modified.resx">
+      <DependentUpon>201808271741506_tblEmployee_Modified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809021805196_RequestTable_Added.resx">
+      <DependentUpon>201809021805196_RequestTable_Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809030316050_EmpId_Added_to_tblEmployee.resx">
+      <DependentUpon>201809030316050_EmpId_Added_to_tblEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809030349541_tblEmployee_EmployeeId_Modified_to_string.resx">
+      <DependentUpon>201809030349541_tblEmployee_EmployeeId_Modified_to_string.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809030421201_tblRequest_AssignedRequisitionId_Removed.resx">
+      <DependentUpon>201809030421201_tblRequest_AssignedRequisitionId_Removed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809030847065_tblRequest_stringEmployeeId_Modified_to_EmpIdNo_And_tblEmployee_Association_Added.resx">
+      <DependentUpon>201809030847065_tblRequest_stringEmployeeId_Modified_to_EmpIdNo_And_tblEmployee_Association_Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809050109369_tblRequest_EmployeeId_Association_Removed.resx">
+      <DependentUpon>201809050109369_tblRequest_EmployeeId_Association_Removed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809050328010_tblAssignedRequest_Added.resx">
+      <DependentUpon>201809050328010_tblAssignedRequest_Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809050337012_tblAssignedRequest_DriverIdRemoved_EmployeeIdAdded.resx">
+      <DependentUpon>201809050337012_tblAssignedRequest_DriverIdRemoved_EmployeeIdAdded.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
