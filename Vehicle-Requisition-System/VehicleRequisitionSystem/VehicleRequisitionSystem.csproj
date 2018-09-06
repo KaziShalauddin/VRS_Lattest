@@ -180,7 +180,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AssignedRequestsController.cs" />
-    <Compile Include="Controllers\AssignedRequisitionsController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\DesignationsController.cs" />
     <Compile Include="Controllers\DriversController.cs" />
@@ -189,7 +188,6 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrganizationsController.cs" />
     <Compile Include="Controllers\RequestsController.cs" />
-    <Compile Include="Controllers\RequisitionRequestsController.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -804,11 +802,6 @@
     <Content Include="Views\Drivers\Details.cshtml" />
     <Content Include="Views\Drivers\Edit.cshtml" />
     <Content Include="Views\Drivers\Index.cshtml" />
-    <Content Include="Views\AssignedRequisitions\Create.cshtml" />
-    <Content Include="Views\AssignedRequisitions\Delete.cshtml" />
-    <Content Include="Views\AssignedRequisitions\Details.cshtml" />
-    <Content Include="Views\AssignedRequisitions\Edit.cshtml" />
-    <Content Include="Views\AssignedRequisitions\Index.cshtml" />
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Departments\Create.cshtml" />
@@ -821,11 +814,6 @@
     <Content Include="Views\Vehicles\Details.cshtml" />
     <Content Include="Views\Vehicles\Edit.cshtml" />
     <Content Include="Views\Vehicles\Index.cshtml" />
-    <Content Include="Views\RequisitionRequests\Delete.cshtml" />
-    <Content Include="Views\RequisitionRequests\Details.cshtml" />
-    <Content Include="Views\RequisitionRequests\Edit.cshtml" />
-    <Content Include="Views\RequisitionRequests\Index.cshtml" />
-    <Content Include="Views\RequisitionRequests\Create.cshtml" />
     <Content Include="Views\Shared\_DashBoard.cshtml" />
     <Content Include="Views\Home\DashBoard.cshtml" />
     <Content Include="Views\Employees\EmployeeCreate.cshtml" />
