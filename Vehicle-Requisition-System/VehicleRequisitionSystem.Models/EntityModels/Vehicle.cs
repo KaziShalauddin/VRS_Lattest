@@ -9,6 +9,7 @@ namespace VehicleRequisitionSystem.Models.EntityModels
     public class Vehicle
     {
         public int Id { get; set; }
+        [Display(Name = "Vehicle Brand")]
         public string BrandName { get; set; }
         public string Model { get; set; }
         [Display(Name = "Vehicle License No.")]

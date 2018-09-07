@@ -5,26 +5,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
 
 <div>
-    <h4>Assigned Request</h4>
+    <h4>Assigned Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Employee.Name)
+            @Html.DisplayNameFor(model => model.RequestId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpIdNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpIdNo)
+        </dd>
+        <dt>
+            @Html.DisplayName("Driver Id")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmpIdNo)
+        </dd>
+        <dt>
+            @Html.DisplayName("Driver Name")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Employee.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Request.UserId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Request.UserId)
         </dd>
 
         <dt>
@@ -35,29 +47,38 @@
             @Html.DisplayFor(model => model.Vehicle.BrandName)
         </dd>
 
+
         <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.RegistrationNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.RegistrationNo)
+        </dd>
+
+        @*<dt>
             @Html.DisplayNameFor(model => model.UserId)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.UserId)
-        </dd>
+        </dd>*@
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.EmpIdNo)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.EmpIdNo)
-        </dd>
+        </dd>*@
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.IsDeleted)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.IsDeleted)
-        </dd>
+        </dd>*@
 
     </dl>
 </div>

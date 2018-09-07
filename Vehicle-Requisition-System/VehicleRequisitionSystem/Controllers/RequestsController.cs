@@ -100,6 +100,19 @@ namespace VehicleRequisitionSystem.Controllers
             }
             return View(model);
         }
+        public ActionResult AssignedDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            AssignedRequest assignedRequest = db.AssignedRequests.Include(e=>e.Employee).Include(e=>e.Vehicle).FirstOrDefault(e => e.RequestId == id);
+            if (assignedRequest == null)
+            {
+                return HttpNotFound();
+            }
+            return View(assignedRequest);
+        }
         private RequestListVM SetRequestDetails(int? id)
         {
             Request rs = db.Requests.Find(id);
